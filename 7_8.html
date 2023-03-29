@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Math를 활용한 구구단 연습</title>
+    <script>
+        function randomInt() { // 5~9의 십진 난수 리턴
+            return Math.floor(Math.random() * 9) + 1;
+        }
+    </script>
+</head>
+<body>
+    <h3>Math를 활용한 구구단 연습</h3>
+    <hr>
+    <script>
+        let i = 1;
+        let maru = 0;
+        let fal = 0;
+        while (i >= 0 && i < 11) {
+            // 구구단 문제 생성
+            let ques = randomInt() + "*" + randomInt();
+            // 사용자로부터 답 입력
+            let user = prompt(i + "번째 문제입니다. " + ques + " 값은 얼마일까요?", 0);
+
+
+            if (user == null) { // 취소 버튼이 클릭된 경우
+                document.write("구구단 연습을 종료합니다<br>");
+            }
+            else {
+                let ans = eval(ques); // 구구단 정답 계산
+                if (ans == user) // 정답과 사용자 입력 비교
+                    maru += 1;
+                else
+                    fal += 1;
+            }
+            i += 1;
+        }
+        document.write("정답을 맞춘 횟수는 " + maru + "회이며, 오답 횟수는 " + fal + "</strong>회 입니다<br>");
+    </script>
+</body>
+
+</html>
